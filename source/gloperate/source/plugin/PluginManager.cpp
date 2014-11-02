@@ -17,7 +17,6 @@
 
 #include "util/DirectoryIterator.h"
 
-
 namespace
 {
     // Define system specific filename properties
@@ -35,6 +34,13 @@ namespace
     const std::string g_pre = "lib";
     const std::string g_ext = "so";
 #endif
+
+#ifdef _DEBUG
+	#define DEBUG_CHECK true
+#else
+	#define DEBUG_CHECK false
+#endif // _DEBUG
+
 
     class PluginLibraryImpl : public gloperate::PluginLibrary
     {
@@ -164,7 +170,7 @@ void PluginManager::scan(const std::string & identifier, bool reload)
     for (const std::string & file : files)
     {
         // check if path meets search criteria
-        if (DirectoryIterator::extension(file) != g_ext)
+		if (DirectoryIterator::extension(file) != g_ext || DirectoryIterator::isDebug(file) != DEBUG_CHECK)
             continue;
 
         if (identifier.empty() || file.find(identifier, file.find_last_of(g_sep)) != std::string::npos)

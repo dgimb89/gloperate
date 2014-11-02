@@ -131,4 +131,12 @@ std::string DirectoryIterator::truncate(const std::string & path)
     return truncated;
 }
 
+bool DirectoryIterator::isDebug(const std::string & filename) 
+{
+	if (filename.rfind("_d.") != std::string::npos) {
+		return true;
+	}
+	return false;
+}
+
 } // namespace gloperate

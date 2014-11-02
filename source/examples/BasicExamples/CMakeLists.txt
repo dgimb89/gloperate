@@ -95,7 +95,7 @@ set_target_properties(${target}
     COMPILE_FLAGS               "${DEFAULT_COMPILE_FLAGS}"
     LINK_FLAGS_DEBUG            "${DEFAULT_LINKER_FLAGS_DEBUG}"
     LINK_FLAGS_RELEASE          "${DEFAULT_LINKER_FLAGS_RELEASE}"
-    DEBUG_POSTFIX               "d${DEBUG_POSTFIX}"
+    DEBUG_POSTFIX               "_d${DEBUG_POSTFIX}"
     INCLUDE_PATH                ${include_path})
 
 #
