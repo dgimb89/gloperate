@@ -41,6 +41,10 @@ public:
     */
     static std::string extension(const std::string & filename);
 
+	/** \brief Returns true when given filename indicates debug build
+	*/
+	static bool isDebug(const std::string & filename);
+
     /** \brief Removes trailing path seperators from path
     */
     static std::string truncate(const std::string & path);
